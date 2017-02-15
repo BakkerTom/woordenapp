@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane dividerPositions="0.5" layoutX="160.0" layoutY="66.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <HBox layoutX="85.0" layoutY="48.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TextArea fx:id="inputTextField" prefHeight="200.0" prefWidth="200.0" wrapText="true" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </HBox.margin>
+                        </TextArea>
+                        <VBox prefHeight="200.0" prefWidth="160.0" spacing="16.0" HBox.hgrow="SOMETIMES">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#didPressAmount" prefHeight="27.0" prefWidth="140.0" text="Aantal" textAlignment="CENTER" />
+                              <Button mnemonicParsing="false" onAction="#didPressSort" prefWidth="140.0" text="Sorteer" textAlignment="CENTER" />
+                              <Button mnemonicParsing="false" onAction="#didPressFrequency" prefWidth="140.0" text="Frequentie" textAlignment="CENTER" />
+                              <Button mnemonicParsing="false" onAction="#didPressConcordance" prefWidth="140.0" text="Concordantie" textAlignment="CENTER" />
+                           </children>
+                           <padding>
+                              <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children></AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <TextArea fx:id="outputTextField" disable="true" layoutX="6.0" layoutY="8.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0" />
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
