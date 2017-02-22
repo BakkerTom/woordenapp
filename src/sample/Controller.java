@@ -3,8 +3,7 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 public class Controller {
 
@@ -43,8 +42,6 @@ public class Controller {
 
     @FXML
     private void didPressFrequency(){
-        // TODO - Implement frequency functionality
-
         String s = inputTextField.getText();
 
         StringBuilder sb = new StringBuilder();
@@ -66,6 +63,31 @@ public class Controller {
     @FXML
     private void didPressConcordance(){
         // TODO - Implement concordance functionality
+
+        String s = inputTextField.getText();
+
+        StringBuilder sb = new StringBuilder();
+
+        TreeMap data = manager.getWordConcordance(s);
+
+        Iterator entries = data.entrySet().iterator();
+
+        while (entries.hasNext()){
+            Map.Entry entry = (Map.Entry) entries.next();
+
+            String key = (String) entry.getKey();
+            LinkedList<Integer> value = (LinkedList<Integer>) entry.getValue();
+
+            sb.append(key.toString() + ": [");
+
+            for (int val : value){
+                sb.append(val + ", ");
+            }
+
+            sb.append("] \n");
+        }
+
+        outputTextField.setText(sb.toString());
     }
 
 }

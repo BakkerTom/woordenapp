@@ -66,4 +66,40 @@ public class WordManager{
 
         return map;
     }
+
+    public TreeMap<String, LinkedList<Integer>> getWordConcordance(String input) {
+        // Get a collection of all individual words
+        // Get a collection of lines
+        // For every word, seek occurrences in the lines
+        // If a word is in a line, add the word as a Key to the Map and the line number to the integer list
+
+        String[] words = splitWords(input);
+        String[] lines = input.split("\\r?\\n");
+
+        // Make a TreeSet to remove duplicates from the words array and automatically order alphabetically
+        Set<String> wordSet = new TreeSet<>();
+        wordSet.addAll(Arrays.asList(words));
+
+        TreeMap<String, LinkedList<Integer>> map = new TreeMap<>();
+
+        //Foreach word in the wordset...
+        for (String word : wordSet){
+            // Key = the word
+            LinkedList<Integer> value = new LinkedList<>();
+
+            for (int i = 0; i < lines.length; i++){
+                String line = lines[i].toLowerCase();
+
+                if (line.contains(word)){
+                    //Add line index to the integer list
+                    value.add(i + 1); //Add 1 as line numbers are not 0-indexed
+                }
+            }
+
+            map.put(word, value);
+        }
+
+
+        return map;
+    }
 }
